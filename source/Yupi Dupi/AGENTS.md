@@ -1,6 +1,7 @@
 ---
 name_bot: Yupi Dupi
-description: 
+description:
+tags: 
 ---
 
 ## Reglas
