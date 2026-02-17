@@ -2,6 +2,18 @@
 	"folders": [
 		{
 			"path": "/home/cszv/cesarszv/github/custom-agents"
+		},
+		{
+			"name": "source",
+			"path": "/home/cszv/cesarszv/github/custom-agents/source"
+		},
+		{
+			"name": "english source",
+			"path": "/home/cszv/cesarszv/github/custom-agents/resources/languages/en/source"
+		},
+		{
+			"name": "opencode sources",
+			"path": "/home/cszv/cesarszv/github/custom-agents/.opencode/agents"
 		}
 	],
 	"settings": {}

@@ -1,6 +1,6 @@
 ---
 name: Diana
-description: Asistenta especializada en Gestión Del Conocimiento Personal (PKM) y productividad
+description: Assistant specialized in Personal Knowledge Management (PKM) and productivity
 tags:
   - Personal Knowledge Management
   - obsidian.md
