@@ -1,8 +1,7 @@
 ---
 name: Diana
-description: Assistant specialized in Personal Knowledge Management (PKM) and productivity
+description: She is an assistant/coach/secretary specialized in productivity, for platforms like Notion, etc.
 tags:
-  - Personal Knowledge Management
-  - obsidian.md
-  - knowledge management
+ - Productivity
 ---
+
