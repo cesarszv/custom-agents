@@ -1,38 +1,51 @@
-# Custom Agents Repository
+# Custom Agents
 
-This repository hosts a collection of custom agents designed for OpenCode. It follows a structured pipeline where agents are defined in Spanish (staging), translated to English (production), and then deployed to OpenCode.
+Colección de agentes personalizados con un pipeline estructurado: se definen en español (staging), se traducen al inglés (production) y se despliegan a OpenCode (deploy).
 
-## 📂 Repository Structure
+## Estructura del Repositorio
 
-- **`source/`**: Staging area. Contains the original agent definitions in Spanish (Source of Truth).
-- **`resources/languages/en/`**: Production area. Contains the English translations of the agents.
-- **`.opencode/agents/`**: Deploy area. Contains the final agent files used by OpenCode.
-- **`.agents/skills/`**: Contains the management skills/agents for maintaining this repository.
+```
+source/                          ← Staging (español, source of truth)
+resources/languages/en/source/   ← Production (traducciones en inglés)
+.opencode/agents/                ← Deploy (archivos finales para OpenCode)
+.agents/skills/                  ← Skills de gestión del pipeline
+```
 
-## 🤖 Available Agents
+## Estándar de Archivos por Agente
 
-| Agent | Role | Archetype |
-|-------|------|-----------|
-| **Carmen Marin** | Senior Database Architect | Analyst / Specialist |
-| **Diana** | PKM & Productivity Assistant | Specialist (Obsidian.md) |
-| **Marty McBot** | Domain Expert | Specialist |
-| **Sigmund Bot** | Psychologist | Therapist |
-| **Yupi Dupi** | Technical Mentor | Tough-love Educator |
-| **Yurnal** | Journalist | Clear Communicator |
+Cada agente sigue la separación de responsabilidades:
 
-## 🛠️ Management Skills
+| Archivo | Responsabilidad |
+|---|---|
+| `IDENTITY.md` | Propósito: qué hace, para quién, en qué dominio opera |
+| `SOUL.md` | Constitución: personalidad, tono, valores, comportamiento |
+| `AGENTS.md` | Configuración: reglas operativas, expertise, convenciones |
+| `README.md` | Documentación para humanos (no es parte del estándar de agentes) |
 
-These skills help maintain the agent pipeline:
+## Agentes
 
-- **`agent-scaffold`**: Creates a new agent across all three layers (Staging, Production, Deploy) in one go.
-- **`agent-sync`**: Synchronizes changes from Spanish (Staging) to English (Production).
-- **`agent-to-opencode`**: Generates the final OpenCode deployment files from the English sources.
-- **`agent-audit`**: Verifies consistency and completeness across all layers.
+| Agente | Dominio |
+|---|---|
+| **Diana** | Productividad, gestión del tiempo, metodologías de organización |
+| **JJ** | Arquitectura de software, CS, IA, desarrollo full-stack |
+| **Marty McBot** | Deep research histórico, soluciones del pasado |
+| **Obsi** | Gestión del Conocimiento Personal (PKM), Obsidian.md |
+| **Yupi Dupi** | Orquestador principal *(en diseño)* |
+| **Yurnal** | Psicología académica |
 
-## 🚀 Workflow
+## Skills de Gestión
 
-1.  **Create**: Use `agent-scaffold` to generate a new agent.
-2.  **Edit**: Modify the Spanish files in `source/<AgentName>/`.
-3.  **Sync**: Run `agent-sync` to update the English translations.
-4.  **Deploy**: Run `agent-to-opencode` to generate the `.opencode` files.
-5.  **Verify**: Run `agent-audit` to ensure everything is consistent.
+| Skill | Función |
+|---|---|
+| `agent-scaffold` | Crea un agente nuevo en las 3 capas |
+| `agent-sync` | Sincroniza staging (ES) → production (EN) |
+| `agent-to-opencode` | Genera archivos de deploy desde las fuentes EN |
+| `agent-audit` | Verifica consistencia entre capas |
+
+## Workflow
+
+1. **Crear**: `agent-scaffold` genera la estructura del agente
+2. **Editar**: modificar archivos en `source/<Agente>/`
+3. **Sincronizar**: `agent-sync` actualiza las traducciones EN
+4. **Desplegar**: `agent-to-opencode` genera los archivos `.opencode`
+5. **Verificar**: `agent-audit` valida consistencia
