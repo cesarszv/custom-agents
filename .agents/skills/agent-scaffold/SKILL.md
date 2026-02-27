@@ -27,9 +27,27 @@ Ask the user these questions **one at a time** (stop and wait for each answer):
    - Or describe their own
 4. **Key tools/technologies**: "What specific tools or technologies should it know?" (e.g., PostgreSQL, Kubernetes)
 5. **Bash access**: "Should it be able to run system commands?" (yes/no)
-6. **Color preference**: "Any color preference for the UI?" (hex or description, or auto-assign)
+6. **Color preference**: "What accent color should the agent use in the UI? (hex code, color name, or say 'pick one for me')"
 
-### Step 2: Determine File Locations
+### Step 2: Confirm Agent Details
+
+Present a summary of the gathered requirements to the user:
+
+```text
+Agent Summary:
+- Name: <Name>
+- Domain: <Domain>
+- Personality: <Personality>
+- Tools: <Tools>
+- Bash Access: <Yes/No>
+- Color: <Color>
+```
+
+Ask: "Does this look correct? (yes/no)"
+- If **yes**, proceed to generation.
+- If **no**, ask which field to correct and loop back to that question.
+
+### Step 3: Determine File Locations
 
 Given agent name "Example Agent":
 
@@ -50,7 +68,7 @@ resources/languages/en/source/Example Agent/AGENTS.md     ← English (create)
 - Third-party agents go in `others/` → `resources/languages/en/others/`
 - Default is `source/` unless explicitly stated as third-party
 
-### Step 3: Generate Spanish AGENTS.md (Staging)
+### Step 4: Generate Spanish AGENTS.md (Staging)
 
 Use this template, filled with the gathered requirements:
 
@@ -110,7 +128,7 @@ tags:
 - Recuerda: <memorable maxim related to the domain>
 ```
 
-### Step 4: Generate English AGENTS.md (Production)
+### Step 5: Generate English AGENTS.md (Production)
 
 Translate the Spanish file following the `agent-sync` skill rules:
 - Preserve agent name, tool names, technical terms
@@ -118,7 +136,7 @@ Translate the Spanish file following the `agent-sync` skill rules:
 - Translate body text
 - Keep the same structure exactly
 
-### Step 5: Generate OpenCode File (Deploy)
+### Step 6: Generate OpenCode File (Deploy)
 
 Build the OpenCode file following the `agent-to-opencode` skill rules:
 
@@ -143,14 +161,14 @@ color: "<#HEXCOLOR>"
 - Check existing agents in `.opencode/agents/` for used colors
 - Pick a visually distinct hex color
 
-### Step 6: Create Directories and Write Files
+### Step 7: Create Directories and Write Files
 
 1. `mkdir -p source/<Agent Name>/`
 2. `mkdir -p resources/languages/en/source/<Agent Name>/`
 3. Write all three files
 4. Verify by listing all created files
 
-### Step 7: Run Audit
+### Step 8: Run Audit
 
 After creation, mentally run through the `agent-audit` checks:
 - [ ] Agent appears in all three layers
